@@ -17,7 +17,8 @@ function TelaLogin(props) {
           <Input type={"password"} />
         </StyledLabel>
         <SendButton onClick={enviarLogin}>Entrar</SendButton>
-        <RegisterButton >Cadastre-se</RegisterButton>
+        {/* quando passamos parâmetro para a função, precisamos usar um arrow function na frente, para que ela não dispare assim que for lida */}
+        <RegisterButton onClick={() => props.mudaTela("cadastro")} >Cadastre-se</RegisterButton>
       </Form>
     </FormContainer>
   );
