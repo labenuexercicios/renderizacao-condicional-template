@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import TelaLogin from "./components/TelaLogin/TelaLogin";
 import TelaCadastro from "./components/TelaCadastro/TelaCadastro";
+import { useState } from "react";
 
 const GlobalStyled = createGlobalStyle`
   *{
@@ -15,11 +16,17 @@ const MainContainer = styled.main`
 
 function App() {
 
+  const [page,setPage] = useState(true)
+
   return (
     <MainContainer >
       <GlobalStyled />
-      <TelaLogin />
-      <TelaCadastro />
+      {page? 
+      <TelaLogin setPage={setPage}/> : <TelaCadastro setPage={setPage}/>  
+      }
+
+      {}
+
     </MainContainer>
   );
 }
