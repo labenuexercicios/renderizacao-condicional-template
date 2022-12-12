@@ -6,6 +6,10 @@ function TelaLogin(props) {
     alert("E-mail não encontrado, será necessário fazer o cadastro!")
   }
 
+  const mudarPage = () => {
+    props.setPage(false)
+  }
+
   return (
     <FormContainer >
       <h1>LOGIN</h1>
@@ -17,7 +21,7 @@ function TelaLogin(props) {
           <Input type={"password"} />
         </StyledLabel>
         <SendButton onClick={enviarLogin}>Entrar</SendButton>
-        <RegisterButton >Cadastre-se</RegisterButton>
+        <RegisterButton onClick={mudarPage}>Cadastre-se</RegisterButton>
       </Form>
     </FormContainer>
   );

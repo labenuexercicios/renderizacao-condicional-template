@@ -1,8 +1,22 @@
+import { useState } from "react";
+import TelaUsuarioCadastrado from "../TelaUsuarioCadastrado/TelaUsuarioCadastrado.js";
 import { Form, FormContainer, Input, StyledLabel, SendButton, BackToLoginButton } from "./styled";
 
 function TelaCadastro(props) {
+
+  const [page, setPage] = useState(true)
+  
+  const goToLogin = () => {
+    props.setPage(true)
+  }
+
+  const goToTelaCad = () => {
+    setPage(false)
+  }
+
   return (
-    <FormContainer>
+    <>
+    {page ?  <FormContainer>
       <h1>Cadastro </h1>
       <Form>
         <StyledLabel htmlFor="titulo">
@@ -21,10 +35,11 @@ function TelaCadastro(props) {
           Confirmação da senha:
           <Input id="descricao" />
         </StyledLabel>
-        <SendButton >Cadastrar</SendButton>
-        <BackToLoginButton >Já possuo um cadastro</BackToLoginButton>
+        <SendButton onClick={goToTelaCad}>Cadastrar</SendButton>
+        <BackToLoginButton onClick={goToLogin}>Já possuo um cadastro</BackToLoginButton>
       </Form>
-    </FormContainer>
+    </FormContainer> : <TelaUsuarioCadastrado/>}
+    </>
   );
 }
 
